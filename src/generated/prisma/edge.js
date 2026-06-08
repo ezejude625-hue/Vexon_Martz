@@ -483,7 +483,7 @@ const config = {
       "value": "prisma-client-js"
     },
     "output": {
-      "value": "C:\\Users\\Jude\\Desktop\\New folder\\vexonmart\\src\\generated\\prisma",
+      "value": "C:\\Users\\Jude\\Desktop\\vexonmart\\src\\generated\\prisma",
       "fromEnvVar": null
     },
     "config": {
@@ -501,7 +501,7 @@ const config = {
       }
     ],
     "previewFeatures": [],
-    "sourceFilePath": "C:\\Users\\Jude\\Desktop\\New folder\\vexonmart\\prisma\\schema.prisma",
+    "sourceFilePath": "C:\\Users\\Jude\\Desktop\\vexonmart\\prisma\\schema.prisma",
     "isCustomOutput": true
   },
   "relativeEnvPaths": {
@@ -515,6 +515,7 @@ const config = {
     "db"
   ],
   "activeProvider": "postgresql",
+  "postinstall": false,
   "inlineDatasources": {
     "db": {
       "url": {
