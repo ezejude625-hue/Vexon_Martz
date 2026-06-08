@@ -1,0 +1,351 @@
+# VexonMart — Shop Smarter. Live Better.
+
+World-class e-commerce platform · Next.js 14 · Plain JavaScript (.js) · MySQL · Tailwind CSS
+
+## Brand Colors (edit to retheme)
+
+| Token | Hex | Usage |
+|---|---|---|
+| `onyx` | `#0A171D` | Dark backgrounds, admin sidebar |
+| `wheat` | `#FFF6E9` | Page background, light surfaces |
+| `oceanic` | `#003F47` | Brand primary, CTAs, links |
+| `nectarine` | `#FFBD76` | Highlights, active states, badges |
+
+Edit `tailwind.config.js` → `colors` to retheme everything instantly.
+
+## Quick Start
+
+```bash
+# 1. Install
+npm install
+
+# 2. Configure
+cp .env.example .env.local
+# Fill in DB_HOST, DB_USER, DB_PASSWORD, DB_NAME, JWT_SECRET
+
+# 3. Database
+mysql -u root -p -e "CREATE DATABASE vexonmart;"
+mysql -u root -p vexonmart < database/schema.sql
+node database/seed.js
+
+# 4. Run
+npm run dev
+```
+
+## Test Accounts (after seed)
+| Role | Email | Password |
+|---|---|---|
+| Admin | admin@vexonmart123.com | admin123 |
+| Vendor | vendor@techzone123.io | vendor123 |
+| Customer | amara@example123.com | customer123 |
+
+**Admin panel:** http://localhost:3000/admin
+
+## File Extensions
+Every single file uses `.js` — no `.tsx`, `.ts`, or `.jsx`.
+
+
+
+## Accounts
+Admin    admin@vexonmart.com   / admin123        │
+  │  Vendor   vendor@techzone.io    / vendor123       │
+  │  Customer amara@example.com     / customer123     │
+  │  Support  support@vexonmart.com / support123   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  # ============================================================
+# VEXONMART — .env.local
+# NEVER commit this file to GitHub — it's in .gitignore
+# ============================================================
+
+
+# ── DATABASE (MySQL) ─────────────────────────────────────────
+DB_HOST=localhost
+DB_PORT=3306
+DB_USER=root
+DB_PASSWORD=
+DB_NAME=vexonmart
+
+
+# ── APP ──────────────────────────────────────────────────────
+NEXT_PUBLIC_APP_NAME=VexonMart
+NEXT_PUBLIC_APP_URL=http://localhost:3000
+NEXT_PUBLIC_APP_TAGLINE=Shop Smarter. Live Better.
+
+
+# ── JWT AUTH ─────────────────────────────────────────────────
+# Generate with: node -e "console.log(require('crypto').randomBytes(64).toString('hex'))"
+JWT_SECRET=fb2b6219a7b06e5168a522f4ff7d24314ed84d15357088c131749b00d32d0a43dba542c4d69bb040a81a2935b856cb443bbe40593b74a5260cfe69af05601c13
+JWT_EXPIRES_IN=7d
+
+
+# ── ADMIN SECURITY ───────────────────────────────────────────
+# Secret token required for admin API calls
+# Generate with: node -e "console.log(require('crypto').randomBytes(32).toString('hex'))"
+ADMIN_SECRET_TOKEN=a06d488b7d6c8144d3b58bcca8d2ff1eb627ed587ca502a8e8f7b240c6b8762d
+
+# Comma-separated list of IPs allowed to access /admin
+# Find your IP at: https://whatismyip.com
+ADMIN_ALLOWED_IPS=127.0.0.1,::1
+
+
+# ── STRIPE PAYMENTS ──────────────────────────────────────────
+# Get these from: https://dashboard.stripe.com/apikeys
+NEXT_PUBLIC_STRIPE_PUBLIC_KEY=pk_test_51...
+STRIPE_SECRET_KEY=sk_test_51...
+STRIPE_WEBHOOK_SECRET=whsec_...
+
+
+# ── EMAIL (SMTP) ─────────────────────────────────────────────
+# Option A: Gmail (easy for dev)
+# Enable "App Passwords" in your Google Account settings
+SMTP_HOST=smtp.gmail.com
+SMTP_PORT=587
+SMTP_SECURE=false
+SMTP_USER=ezejude625@gmail.com
+SMTP_PASS=ezejude625@gmail
+SMTP_FROM_NAME=VexonMart
+SMTP_FROM_EMAIL=noreply@vexonmart.com
+
+# Option B: Production (Resend, Mailgun, SendGrid)
+# SMTP_HOST=smtp.resend.com
+# SMTP_PORT=465
+# SMTP_SECURE=true
+# SMTP_USER=resend
+# SMTP_PASS=re_your_api_key_here
+
+
+# ── FILE UPLOADS ─────────────────────────────────────────────
+# Max file size in MB
+UPLOAD_MAX_SIZE_MB=5
+# Where uploaded images are stored
+UPLOAD_DIR=public/uploads
+
+
+# ── CLOUDINARY (optional — for cloud image storage) ──────────
+# Get from: https://cloudinary.com/console
+# Leave blank to use local file uploads instead
+CLOUDINARY_CLOUD_NAME=
+CLOUDINARY_API_KEY=
+CLOUDINARY_API_SECRET=
+
+
+# ── PAYPAL (optional) ─────────────────────────────────────────
+# Get from: https://developer.paypal.com/dashboard
+PAYPAL_CLIENT_ID=
+PAYPAL_CLIENT_SECRET=
+PAYPAL_MODE=sandbox
+
+
+# ── GOOGLE OAUTH (optional — for "Sign in with Google") ───────
+# Get from: https://console.cloud.google.com/apis/credentials
+GOOGLE_CLIENT_ID=
+GOOGLE_CLIENT_SECRET=
+
+
+# ── RATE LIMITING ────────────────────────────────────────────
+# Max login attempts before lockout
+LOGIN_MAX_ATTEMPTS=5
+# Lockout duration in minutes
+LOGIN_LOCKOUT_MINUTES=15
+
+
+# ── NEXT.JS ──────────────────────────────────────────────────
+NEXT_TELEMETRY_DISABLED=1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# ============================================================
+# VEXONMART — .env.local
+# NEVER commit this file to GitHub — it's in .gitignore
+# ============================================================
+
+
+# ── DATABASE (MySQL) ─────────────────────────────────────────
+DB_HOST=localhost
+DB_PORT=3306
+DB_USER=root
+DB_PASSWORD=
+DB_NAME=vexonmart
+
+
+# ── APP ──────────────────────────────────────────────────────
+NEXT_PUBLIC_APP_NAME=VexonMart
+NEXT_PUBLIC_APP_URL=http://localhost:3000
+NEXT_PUBLIC_APP_TAGLINE=Shop Smarter. Live Better.
+
+
+# ── JWT AUTH ─────────────────────────────────────────────────
+# Generate with: node -e "console.log(require('crypto').randomBytes(64).toString('hex'))"
+JWT_SECRET=fb2b6219a7b06e5168a522f4ff7d24314ed84d15357088c131749b00d32d0a43dba542c4d69bb040a81a2935b856cb443bbe40593b74a5260cfe69af05601c13
+JWT_EXPIRES_IN=7d
+
+
+# ── ADMIN SECURITY ───────────────────────────────────────────
+# Secret token required for admin API calls
+# Generate with: node -e "console.log(require('crypto').randomBytes(32).toString('hex'))"
+ADMIN_SECRET_TOKEN=a06d488b7d6c8144d3b58bcca8d2ff1eb627ed587ca502a8e8f7b240c6b8762d
+
+# Comma-separated list of IPs allowed to access /admin
+# Find your IP at: https://whatismyip.com
+ADMIN_ALLOWED_IPS=127.0.0.1,::1
+
+
+# ── STRIPE PAYMENTS ──────────────────────────────────────────
+# Get these from: https://dashboard.stripe.com/apikeys
+NEXT_PUBLIC_STRIPE_PUBLIC_KEY=pk_test_51...
+STRIPE_SECRET_KEY=sk_test_51...
+STRIPE_WEBHOOK_SECRET=whsec_...
+
+
+# ── EMAIL (SMTP) ─────────────────────────────────────────────
+# Option A: Gmail (easy for dev)
+# Enable "App Passwords" in your Google Account settings
+SMTP_HOST=smtp.gmail.com
+SMTP_PORT=587
+SMTP_SECURE=false
+SMTP_USER=ezejude625@gmail.com
+SMTP_PASS=ezejude625@gmail
+SMTP_FROM_NAME=VexonMart
+SMTP_FROM_EMAIL=noreply@vexonmart.com
+
+# Option B: Production (Resend, Mailgun, SendGrid)
+# SMTP_HOST=smtp.resend.com
+# SMTP_PORT=465
+# SMTP_SECURE=true
+# SMTP_USER=resend
+# SMTP_PASS=re_your_api_key_here
+
+
+# ── FILE UPLOADS ─────────────────────────────────────────────
+# Max file size in MB
+UPLOAD_MAX_SIZE_MB=5
+# Where uploaded images are stored
+UPLOAD_DIR=public/uploads
+
+
+# ── CLOUDINARY (optional — for cloud image storage) ──────────
+# Get from: https://cloudinary.com/console
+# Leave blank to use local file uploads instead
+CLOUDINARY_CLOUD_NAME=
+CLOUDINARY_API_KEY=
+CLOUDINARY_API_SECRET=
+
+
+# ── PAYPAL (optional) ─────────────────────────────────────────
+# Get from: https://developer.paypal.com/dashboard
+PAYPAL_CLIENT_ID=
+PAYPAL_CLIENT_SECRET=
+PAYPAL_MODE=sandbox
+
+
+# ── GOOGLE OAUTH (optional — for "Sign in with Google") ───────
+# Get from: https://console.cloud.google.com/apis/credentials
+GOOGLE_CLIENT_ID=
+GOOGLE_CLIENT_SECRET=
+
+
+# ── RATE LIMITING ────────────────────────────────────────────
+# Max login attempts before lockout
+LOGIN_MAX_ATTEMPTS=5
+# Lockout duration in minutes
+LOGIN_LOCKOUT_MINUTES=15
+
+
+# ── NEXT.JS ──────────────────────────────────────────────────
+NEXT_TELEMETRY_DISABLED=1
+
+
+
+SEED-ADMIN.MJS
+
+import { PrismaClient } from "./src/generated/prisma/index.js";
+import bcrypt from "bcryptjs";
+
+const prisma = new PrismaClient();
+
+async function seed() {
+  const hash = await bcrypt.hash("VexonMartAdmin147", 12);
+
+  const user = await prisma.user.create({
+    data: {
+      role: "admin",
+      firstName: "Super",
+      lastName: "Admin",
+      email: "admin147@vexonmart.com",
+      passwordHash: hash,
+      emailVerified: true,
+      isActive: true,
+    },
+  });
+
+  console.log("✓ Admin created:", user.email);
+  console.log("  Email:    admin147@vexonmart.com");
+  console.log("  Password: VexonMartAdmin147");
+
+  await prisma.$disconnect();
+}
+
+seed().catch((e) => {
+  console.error("✗ Failed:", e.message);
+  prisma.$disconnect();
+});
+
+
+
+{
+    id: 7,
+    name: "Yoga Mat Pro — 6mm",
+    cat: "sports",
+    price: 64.99,
+    sale: 49.99,
+    img: "https://images.unsplash.com/photo-1705248382836-3618e25706d0?q=80&w=500",
+    rating: 4.9,
+    reviews: 2100,
+    badge: null,
+  },
+  {
+    id: 8,
+    name: "Oversized Merino Hoodie",
+    cat: "fashion",
+    price: 129.0,
+    sale: null,
+    img: "https://images.unsplash.com/photo-1699275303942-47957eea44b1?q=80&w=500",
+    rating: 4.9,
+    reviews: 244,
+    badge: "New",
+  },
