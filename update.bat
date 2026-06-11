@@ -24,7 +24,7 @@ echo.
 
 :: Commit with message
 set /p commitMsg="Enter commit message (or press Enter for 'Update Files'): "
-if "%commitMsg%"=="" set commitMsg="Update Files"
+if "%commitMsg%"=="" set "commitMsg=Update Files"
 git commit -m "%commitMsg%"
 echo.
 
