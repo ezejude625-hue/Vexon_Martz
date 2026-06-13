@@ -22,7 +22,7 @@ echo Staging files...
 git add .
 echo.
 
-:: Commit with message
+:: Commit with message  (git commit -a -m "update files") this is a shortcut for add and commit.
 set /p commitMsg="Enter commit message (or press Enter for 'Update Files'): "
 if "%commitMsg%"=="" set "commitMsg=Update Files"
 git commit -m "%commitMsg%"
