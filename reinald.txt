@@ -117,8 +117,8 @@ STRIPE_WEBHOOK_SECRET=whsec_...
 SMTP_HOST=smtp.gmail.com
 SMTP_PORT=587
 SMTP_SECURE=false
-SMTP_USER=ezejude625@gmail.com
-SMTP_PASS=ezejude625@gmail
+SMTP_USER=
+SMTP_PASS=
 SMTP_FROM_NAME=VexonMart
 SMTP_FROM_EMAIL=noreply@vexonmart.com
 
@@ -211,14 +211,14 @@ NEXT_PUBLIC_APP_TAGLINE=Shop Smarter. Live Better.
 
 # ── JWT AUTH ─────────────────────────────────────────────────
 # Generate with: node -e "console.log(require('crypto').randomBytes(64).toString('hex'))"
-JWT_SECRET=fb2b6219a7b06e5168a522f4ff7d24314ed84d15357088c131749b00d32d0a43dba542c4d69bb040a81a2935b856cb443bbe40593b74a5260cfe69af05601c13
+JWT_SECRET=fb2b6219a7b06e5168522f4ff7d24314ed84d15357088c131749b00d32d0a43dba542c4d69bb040a81a2935b856cb443bbe40593b74a5260cfe69af05601c13
 JWT_EXPIRES_IN=7d
 
 
 # ── ADMIN SECURITY ───────────────────────────────────────────
 # Secret token required for admin API calls
 # Generate with: node -e "console.log(require('crypto').randomBytes(32).toString('hex'))"
-ADMIN_SECRET_TOKEN=a06d488b7d6c8144d3b58bcca8d2ff1eb627ed587ca502a8e8f7b240c6b8762d
+ADMIN_SECRET_TOKEN=a06d488bd6c8144d3b58bcca8d2ff1eb627ed587ca502a8e8f7b240c6b8762d
 
 # Comma-separated list of IPs allowed to access /admin
 # Find your IP at: https://whatismyip.com
@@ -238,8 +238,8 @@ STRIPE_WEBHOOK_SECRET=whsec_...
 SMTP_HOST=smtp.gmail.com
 SMTP_PORT=587
 SMTP_SECURE=false
-SMTP_USER=ezejude625@gmail.com
-SMTP_PASS=ezejude625@gmail
+SMTP_USER=
+SMTP_PASS=
 SMTP_FROM_NAME=VexonMart
 SMTP_FROM_EMAIL=noreply@vexonmart.com
 
@@ -306,7 +306,7 @@ async function seed() {
       role: "admin",
       firstName: "Super",
       lastName: "Admin",
-      email: "admin147@vexonmart.com",
+      email: "admin@vexonmart.com",
       passwordHash: hash,
       emailVerified: true,
       isActive: true,
@@ -314,8 +314,8 @@ async function seed() {
   });
 
   console.log("✓ Admin created:", user.email);
-  console.log("  Email:    admin147@vexonmart.com");
-  console.log("  Password: VexonMartAdmin147");
+  console.log("  Email:    admin@vexonmart.com");
+  console.log("  Password: Admin123!");
 
   await prisma.$disconnect();
 }
