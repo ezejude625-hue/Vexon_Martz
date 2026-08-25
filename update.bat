@@ -1,44 +1,66 @@
 @echo off
-title VexonMart Git Updater
-echo ========================================
-echo    Pushing VexonMart to GitHub
-echo ========================================
+cls
+
+title Pushing files to GitHub
+
+echo   ____ ___ _____        _    _ ____  ____      _  _____ _____
+echo  / ___^|_ _^|_   _^|      ^| ^|  ^| ^|  _ \^|  _ \    / \^|_   _^| ____^|
+echo ^| ^|  _ ^| ^|  ^| ^|        ^| ^|  ^| ^| ^|_  ^| ^| ^| ^|  / _ \ ^| ^| ^|  _^|
+echo ^| ^|_^| ^|^| ^|  ^| ^|        ^| ^|__^| ^|  __/^| ^|_^| ^| / ___ \^| ^| ^| ^|___
+echo  \____^|___^| ^|_^|         \____/^|_^|   ^|____/ /_/   \_\_^| ^|_____^|
 echo.
 
-:: Check if git is initialized
+
+rem Initializing to git
+
 if not exist ".git" (
-    echo First run: Initializing git repository...
+    echo ---------------------------
+    echo    Initializing to Git...
+    echo ---------------------------
+    echo.
     git init
     echo.
 )
 
-:: Show what's changed
-echo Files to be committed:
-git status --short
+rem Showing the files that need to be staged
+echo --------------------------------------
+echo    Showing The Repository Status...
+echo --------------------------------------
+git status -s
 echo.
 
-:: Stage all changes
-echo Staging files...
+rem Staging files to github
+echo -----------------------------------------
+echo    Adding All Files To Staging Area...
+echo -----------------------------------------
 git add .
 echo.
 
-:: Commit with message  (git commit -a -m "update files") this is a shortcut for add and commit.
-set /p commitMsg="Enter commit message (or press Enter for 'Update Files'): "
+rem Commit Changes
+echo ----------------------------
+echo    Committing Changes...
+echo ----------------------------
+set /p "commitMsg=Enter Your Commit Message or (click enter to use default): "
 if "%commitMsg%"=="" set "commitMsg=Update Files"
 git commit -m "%commitMsg%"
 echo.
 
-:: Push to GitHub
-echo Pushing to GitHub...
+rem Push changes to repository
+echo --------------------------------------
+echo    Pushing Changes To Repository...
+echo --------------------------------------
 git push
 echo.
 
-:: Show final status
-echo Final status:
+rem Check the status of the repository
+echo --------------------------------------
+echo    Checking The Repository Status...
+echo --------------------------------------
 git status
 echo.
 
-echo ========================================
-echo    Done! Check GitHub for changes.
-echo ========================================
+echo ============================================
+echo    All Operations Completed Successfully.
+echo ============================================
+echo.
 pause
