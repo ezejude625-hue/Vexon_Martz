@@ -1,7 +1,8 @@
 @echo off
-cls
 
 title Pushing files to GitHub
+
+cls
 
 echo   ____ ___ _____        _    _ ____  ____      _  _____ _____
 echo  / ___^|_ _^|_   _^|      ^| ^|  ^| ^|  _ \^|  _ \    / \^|_   _^| ____^|
